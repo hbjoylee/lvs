@@ -1,0 +1,7 @@
+realserver.sh要根据网卡实际情况更改，默认是lo:0
+master&backup中的keepalived.conf要根据网卡实际情况修改，默认是eth0
+master ip 是 172.16.0.240，这个ip在eth0上，所以是eht0.
+在lvs的master机器上使用ip a查看虚拟ip是否在落在该机器
+在realserver的两台机器上用ifconfig查看lo:0的ip是否是虚拟ip
+在lvs的两台机器上用ipvsadm -ln查看realserver机器的ip
+ipvsadm -lcn|grep 172.16.0.179查看转发情况
